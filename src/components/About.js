@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Accordion } from 'react-bootstrap';
 
 const About = ({ darkMode }) => {

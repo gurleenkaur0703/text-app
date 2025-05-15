@@ -148,14 +148,6 @@ function App() {
     alert("Extra spaces removed!");
   };
 
-  const wordFrequency = () => {
-    const freq = {};
-    text.toLowerCase().match(/\b\w+\b/g)?.forEach(word => {
-      freq[word] = (freq[word] || 0) + 1;
-    });
-    return freq;
-  };
-
   const theme = {
     backgroundColor: darkMode ? '#1e1e1e' : '#ffffff',
     color: darkMode ? '#f1f1f1' : '#212121',
