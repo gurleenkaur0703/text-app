@@ -11,8 +11,8 @@ const Navbar = ({ darkMode, toggleTheme }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg px-4 py-3" style={navbarStyle}>
-      <Link className="navbar-brand fw-bold text-decoration-none" to="/" style={{ color: 'inherit' }}><h3>✍️ WriteRight</h3></Link>
+    <nav className="navbar navbar-expand-lg px-4 py-2" style={navbarStyle}>
+      <Link className="navbar-brand fw-bold text-decoration-none" to="/" style={{ color: 'inherit' }}><h4><b>✍️TypeTool</b></h4></Link>
 
       <button
         className="navbar-toggler"

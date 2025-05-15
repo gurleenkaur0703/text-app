@@ -30,7 +30,17 @@ button:hover {
   background-color: #ffc107; /* Yellow for toggle */
   border-color: #ffc107;
 }
-.accordion-button {
-  font-size: 18px;
+
+/* Prevent horizontal scroll on all devices */
+body, html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Make textarea responsive */
+textarea {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 

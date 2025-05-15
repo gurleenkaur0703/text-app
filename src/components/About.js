@@ -13,14 +13,14 @@ const About = ({ darkMode }) => {
   return (
     <section id="about" style={sectionStyle}>
 
- <h2 className="mb-3"><strong>📘 WriteRight</strong></h2>
+ <h2 className="mb-3"><strong>📘 TypeToolBox</strong></h2>
       {/* Accordion for Features and Compatibility */}
       <Accordion defaultActiveKey="0" flush>
         <Accordion.Item eventKey="0">
-          <Accordion.Header><strong>🖊️ About WriteRight</strong></Accordion.Header>
+          <Accordion.Header><strong>🖊️ About TypeToolBox</strong></Accordion.Header>
           <Accordion.Body>
       <p>
-        WriteRight is a modern, browser-based text utility application built using React.
+        TypeToolBox is a modern, browser-based text utility application built using React.
          It’s designed to help users improve their writing productivity by offering intelligent tools to transform, analyze, and export text content.
       </p>
           </Accordion.Body>
