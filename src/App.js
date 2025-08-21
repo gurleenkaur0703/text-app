@@ -1,10 +1,11 @@
+//src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home'; 
 
-import jsPDF from 'jspdf';
+// import jsPDF from 'jspdf';
 import Sentiment from 'sentiment';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import * as mammoth from 'mammoth';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -20,7 +21,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 function App() {
   const [text, setText] = useState('');
   const [darkMode, setDarkMode] = useState(false);
-  const [grammarSuggestions, setGrammarSuggestions] = useState([]);
+  // const [grammarSuggestions, setGrammarSuggestions] = useState([]);
 
   useEffect(() => {
   const saved = localStorage.getItem('draftText');
@@ -106,42 +107,42 @@ function App() {
     window.speechSynthesis.speak(utterance);
   };
   const toggleTheme = () => setDarkMode(!darkMode);
-  const exportToPDF = () => {
-    const input = document.getElementById('text-container');
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 10, 10);
-      pdf.save("text-summary.pdf");
-    });
-  };
-  const analyzeGrammar = async () => {
-    const res = await fetch('https://api.languagetoolplus.com/v2/check', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ text, language: 'en-US' }),
-    });
-    const data = await res.json();
-    setGrammarSuggestions(data.matches);
-  };
-  const correctGrammar = async () => {
-    const res = await fetch('https://api.languagetoolplus.com/v2/check', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ text, language: 'en-US' }),
-    });
-    const data = await res.json();
-    let corrected = text;
-    data.matches.forEach(match => {
-      const suggestion = match.replacements[0]?.value;
-      if (suggestion) {
-        const target = match.context.text.substring(match.context.offset, match.context.offset + match.context.length);
-        corrected = corrected.replace(target, suggestion);
-      }
-    });
-    setText(corrected);
-    alert("Grammar corrected!");
-  };
+  // const exportToPDF = () => {
+  //   const input = document.getElementById('text-container');
+  //   html2canvas(input).then((canvas) => {
+  //     const imgData = canvas.toDataURL('image/png');
+  //     const pdf = new jsPDF();
+  //     pdf.addImage(imgData, 'PNG', 10, 10);
+  //     pdf.save("text-summary.pdf");
+  //   });
+  // };
+  // const analyzeGrammar = async () => {
+  //   const res = await fetch('https://api.languagetoolplus.com/v2/check', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: new URLSearchParams({ text, language: 'en-US' }),
+  //   });
+  //   const data = await res.json();
+  //   setGrammarSuggestions(data.matches);
+  // };
+  // const correctGrammar = async () => {
+  //   const res = await fetch('https://api.languagetoolplus.com/v2/check', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: new URLSearchParams({ text, language: 'en-US' }),
+  //   });
+  //   const data = await res.json();
+  //   let corrected = text;
+  //   data.matches.forEach(match => {
+  //     const suggestion = match.replacements[0]?.value;
+  //     if (suggestion) {
+  //       const target = match.context.text.substring(match.context.offset, match.context.offset + match.context.length);
+  //       corrected = corrected.replace(target, suggestion);
+  //     }
+  //   });
+  //   setText(corrected);
+  //   alert("Grammar corrected!");
+  // };
   const removeExtraSpaces = () => {
     const cleaned = text.replace(/\s+/g, ' ').trim();
     setText(cleaned);
@@ -176,16 +177,17 @@ function App() {
               clearText={clearText}
               copyText={copyText}
               speak={speak}
-              exportToPDF={exportToPDF}
-              analyzeGrammar={analyzeGrammar}
-              correctGrammar={correctGrammar}
+              // exportToPDF={exportToPDF}
+              // analyzeGrammar={analyzeGrammar}
+              // correctGrammar={correctGrammar}
               removeExtraSpaces={removeExtraSpaces}
-              grammarSuggestions={grammarSuggestions}
+              // grammarSuggestions={grammarSuggestions}
               result={result}
               handleFileUpload={handleFileUpload} 
               saveDraft={saveDraft} 
             />
           } />
+          
           <Route path="/about" element={<About darkMode={darkMode} />} />
           <Route path="/" element={<Home handleFileUpload={handleFileUpload} />} />
           <Route path="/" element={<Home saveDraft={saveDraft} />} />
