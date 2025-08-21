@@ -1,9 +1,15 @@
 import React from 'react';
 
+// const Home = ({
+//   text, setText, toUpperCase, toLowerCase, toCapitalise,
+//   clearText, copyText, speak, exportToPDF, analyzeGrammar,
+//   correctGrammar, removeExtraSpaces, grammarSuggestions,
+//   result,handleFileUpload,saveDraft
+// }) => {
+
 const Home = ({
   text, setText, toUpperCase, toLowerCase, toCapitalise,
-  clearText, copyText, speak, exportToPDF, analyzeGrammar,
-  correctGrammar, removeExtraSpaces, grammarSuggestions,
+  clearText, copyText, speak, removeExtraSpaces,
   result,handleFileUpload,saveDraft
 }) => {
   return (
@@ -20,16 +26,16 @@ const Home = ({
         placeholder="Enter or paste your text here"
       />
       <div className="d-flex flex-wrap gap-2 mb-4">
-        <button className="btn btn-primary " onClick={toUpperCase}>UPPERCASE 🔠</button>
-        <button className="btn btn-secondary " onClick={toLowerCase}>lowercase 🔡</button>
+        <button className="btn btn-danger " onClick={toUpperCase}>UPPERCASE 🔠</button>
+        <button className="btn btn-warning " onClick={toLowerCase}>lowercase 🔡</button>
         <button className="btn btn-success " onClick={toCapitalise}>Capitalize 🅰️</button>
         <button className="btn btn-info " onClick={clearText}>Clear ❌</button>
-        <button className="btn btn-warning " onClick={copyText}>Copy 📋</button>
-        <button className="btn btn-primary " onClick={speak}>Speak 🔊</button>
-        <button className="btn btn-secondary " onClick={exportToPDF}>Export to PDF 📄</button>
+        <button className="btn btn-primary " onClick={copyText}>Copy 📋</button>
+        <button className="btn btn-warning  " onClick={speak}>Speak 🔊</button>
+        {/* <button className="btn btn-secondary " onClick={exportToPDF}>Export to PDF 📄</button>
         <button className="btn btn-danger " onClick={analyzeGrammar}>Check Grammar 🧐</button>
-        <button className="btn btn-info " onClick={correctGrammar}>Correct Grammar ✏️</button>
-        <button className="btn btn-warning " onClick={removeExtraSpaces}>Clear Extra Spaces 🧹</button>
+        <button className="btn btn-info " onClick={correctGrammar}>Correct Grammar ✏️</button> */}
+        <button className="btn btn-success " onClick={removeExtraSpaces}>Clear Extra Spaces 🧹</button>
         <button className="btn btn-danger " onClick={saveDraft}>Save as Draft 💾</button>
 
       </div>
@@ -44,7 +50,7 @@ const Home = ({
       <h5>Negative Words: {result.negative.join(", ")}</h5>
 
 
-      {grammarSuggestions.length > 0 && (
+      {/* {grammarSuggestions.length > 0 && (
         <>
           <h4 className="mt-4">Grammar Suggestions</h4>
           <ul>
@@ -56,7 +62,7 @@ const Home = ({
             ))}
           </ul>
         </>
-      )}
+      )} */}
     </div>
   );
 };
